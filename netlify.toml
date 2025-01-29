@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/"
+  to = "/panel.html"
+  status = 200
