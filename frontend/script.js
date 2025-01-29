@@ -4,6 +4,22 @@ twitch.onContext((context) => {
   console.log("Extension loaded!", context);
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("✅ Script loaded!");
+
+  document.getElementById("bits-100").addEventListener("click", function () {
+    spendBits(100);
+  });
+
+  document.getElementById("bits-500").addEventListener("click", function () {
+    spendBits(500);
+  });
+
+  document.getElementById("bits-1000").addEventListener("click", function () {
+    spendBits(1000);
+  });
+});
+
 function spendBits(amount) {
   console.log(`🟢 Attempting to spend ${amount} Bits`);
 
