@@ -4,23 +4,23 @@ twitch.onContext((context) => {
   console.log("Extension loaded!", context);
 });
 
-// Function to Spend Bits
 function spendBits(amount) {
-  console.log(`Trying to spend ${amount} Bits`);
+  console.log(`🟢 Attempting to spend ${amount} Bits`);
 
   if (typeof Twitch !== "undefined" && Twitch.ext) {
     Twitch.ext.bits.useBits(amount);
 
-    // Send transaction to Flask API on Render
+    // Send transaction to Flask API (Render-hosted)
     fetch("https://waltmillsybitsmenu-flask.onrender.com/bits", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ bits_used: amount, user_name: "TestUser" }),
     })
       .then((response) => response.json())
-      .then((data) => console.log("Transaction processed:", data))
-      .catch((error) => console.error("Error:", error));
+      .then((data) => console.log("✅ Bits Processed:", data))
+      .catch((error) => console.error("❌ Fetch Error:", error));
   } else {
+    console.error("❌ Twitch API not available");
     alert("Twitch API not available.");
   }
 }
