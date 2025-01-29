@@ -12,7 +12,7 @@ function spendBits(amount) {
     Twitch.ext.bits.useBits(amount);
 
     // Send transaction to Flask API on Render
-    fetch("https://your-flask-api.onrender.com/bits", {
+    fetch("https://waltmillsybitsmenu-flask.onrender.com/bits", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ bits_used: amount, user_name: "TestUser" }),
