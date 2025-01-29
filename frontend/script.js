@@ -6,22 +6,21 @@ twitch.onContext((context) => {
 
 // Function to Spend Bits
 function spendBits(amount) {
-  if (twitch.bits) {
-    twitch.bits.useBits(amount);
-    document.getElementById("status").innerText = `Spent ${amount} Bits!`;
+  console.log(`Trying to spend ${amount} Bits`);
 
-    // Send Transaction to Backend
-    fetch("http://localhost:5000/bits", {
+  if (typeof Twitch !== "undefined" && Twitch.ext) {
+    Twitch.ext.bits.useBits(amount);
+
+    // Send transaction to Flask API on Render
+    fetch("https://your-flask-api.onrender.com/bits", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ bits_used: amount, user_name: "Viewer123" }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ bits_used: amount, user_name: "TestUser" }),
     })
       .then((response) => response.json())
       .then((data) => console.log("Transaction processed:", data))
       .catch((error) => console.error("Error:", error));
   } else {
-    alert("Bits feature not supported.");
+    alert("Twitch API not available.");
   }
 }
