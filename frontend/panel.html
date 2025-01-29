@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Walt's Bits Menu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+  </head>
+  <body>
+    <h2>Spend Bits to Trigger Stream Events!</h2>
+
+    <button class="bits-button" onclick="spendBits(100)">
+      🔥 100 Bits - Fire Effect
+    </button>
+    <button class="bits-button" onclick="spendBits(500)">
+      🎶 500 Bits - Play Aussie Sound
+    </button>
+    <button class="bits-button" onclick="spendBits(1000)">
+      ⚡ 1000 Bits - Activate Hype Mode
+    </button>
+
+    <p id="status"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>

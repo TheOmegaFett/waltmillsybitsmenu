@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.bits-button {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: #9147ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.bits-button:hover {
+  background-color: #772ce8;
+}
+
+#status {
+  margin-top: 20px;
+  font-size: 14px;
+}
